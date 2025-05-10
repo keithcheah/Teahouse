@@ -3,6 +3,17 @@ B.  Create a README file that includes notes describing where in the code to fin
 C.  Customize the HTML user interface for your customer’s application. The user interface should include the shop name, the product names, and the names of the parts.
 
 Note: Do not remove any elements that were included in the screen. You may add any additional elements you would like or any images, colors, and styles, although it is not required.
+    1. mainscreen.html: line 14  modified
+        To: "<title>Casual Tea Shop</title>"
+        From: "<title>My Bicycle Shop</title>"
+        
+    2. mainscreen.html: line 21 modified
+        To: "<h2>Original Sources</h2>"
+        From: "<h2>Parts</h2>"
+    
+    3. mainscreen.html: line 53 modified
+        To: "<h2>Preset Tastings</h2>"
+        From: "<h2>Products</h2>"
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
 
