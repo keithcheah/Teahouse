@@ -16,6 +16,49 @@ Note: Do not remove any elements that were included in the screen. You may add a
         From: "<h2>Products</h2>"
 
 D.  Add an “About” page to the application to describe your chosen customer’s company to web viewers and include navigation to and from the “About” page and the main screen.
+    1. about.html in resources/templates folder. Created file and added lines 1-24:
+        To: "<!DOCTYPE html>
+        <html lang="en" xmlns:th="http://www.thymeleaf.org">
+        <head>
+            <meta charset="UTF-8">
+
+            <!-- Required meta tags -->
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+            <!-- Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+                  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        
+            <title>Our Story</title>
+        </head>
+        <body>
+            <h1>Casual Tea Shop's History</h1>
+            <a href="mainscreen" class="btn btn-primary btn-sm mb3">Return to Homepage</a>
+        
+            <p>Casual Tea Shop is not concerned with how long it has been open, just that it has had the honor of satisfying several
+            consumers in the past and that it is thankful to still be open today to serve you, if you so desire. We serve tea here and offer preset tastings.</p>
+        
+        </body>
+        </html>"
+        From: ""
+    2. AboutController.java in controllers folder. Created file and added lines 1-12:
+        To: "package com.example.demo.controllers;
+
+        import org.springframework.stereotype.Controller;
+        import org.springframework.web.bind.annotation.GetMapping;
+        
+        @Controller
+        public class AboutController {
+            @GetMapping("/about")
+            public String about() {
+            return "about";
+            }
+        }"
+        From: ""
+    3. mainscreen.html: Added new line 12 by inserting between old line 11 and old line 12:
+        To:"<a href="/about">About Page</a>"
+        From: ""
 
 E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
 
