@@ -13,6 +13,7 @@ import com.example.demo.service.ProductServiceImpl;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,11 +55,13 @@ public class BootStrapData implements CommandLineRunner {
         }
 
         System.out.println(thePart.getCompanyName());
-        */
+
         List<OutsourcedPart> outsourcedParts=(List<OutsourcedPart>) outsourcedPartRepository.findAll();
         for(OutsourcedPart part:outsourcedParts){
             System.out.println(part.getName()+" "+part.getCompanyName());
         }
+        */
+
 
         /*
         Product bicycle= new Product("bicycle",100.0,15);
@@ -66,6 +69,32 @@ public class BootStrapData implements CommandLineRunner {
         productRepository.save(bicycle);
         productRepository.save(unicycle);
         */
+
+        //for testing only:
+        productRepository.deleteAll();
+        partRepository.deleteAll();
+        outsourcedPartRepository.deleteAll();
+        //remove above after completed testing
+        if (productRepository.count() == 0 && partRepository.count() == 0 && outsourcedPartRepository.count() == 0) {
+            //5 parts
+            List<OutsourcedPart> outsourcedParts = new ArrayList<OutsourcedPart>();
+            outsourcedParts.add(new OutsourcedPart("Green Tea", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Black Tea", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("White Tea", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Pu Erh Tea", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Oolong Tea", 5.00, 100));
+            outsourcedPartRepository.saveAll(outsourcedParts);
+
+
+            //5 products
+            List<Product> products = new ArrayList<Product>();
+            products.add(new Product("Green Tea Tasting", 20.00, 50));
+            products.add(new Product("Black Tea Tasting", 20.00, 50));
+            products.add(new Product("White Tea Tasting", 20.00, 50));
+            products.add(new Product("Pu Erh Tea Tasting", 20.00, 50));
+            products.add(new Product("Oolong Tea Tasting", 20.00, 50));
+            productRepository.saveAll(products);
+        }
 
         System.out.println("Started in Bootstrap");
         System.out.println("Number of Products"+productRepository.count());
