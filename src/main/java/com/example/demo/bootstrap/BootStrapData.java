@@ -70,29 +70,24 @@ public class BootStrapData implements CommandLineRunner {
         productRepository.save(unicycle);
         */
 
-        //for testing only:
-        productRepository.deleteAll();
-        partRepository.deleteAll();
-        outsourcedPartRepository.deleteAll();
-        //remove above after completed testing
         if (productRepository.count() == 0 && partRepository.count() == 0 && outsourcedPartRepository.count() == 0) {
             //5 parts
             List<OutsourcedPart> outsourcedParts = new ArrayList<OutsourcedPart>();
-            outsourcedParts.add(new OutsourcedPart("Green Tea", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("Black Tea", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("White Tea", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("Pu Erh Tea", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("Oolong Tea", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Dragon Pearl Jasmine Yunan 2023", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("First Flush Darjeeling 2021", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("White Peony (Bai Mu Dan) Fujian 2024", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Baozhong (Pouchong) Taipei 2022", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Honey Orchid Dancong Oolong Guangdong 2022", 5.00, 100));
             outsourcedPartRepository.saveAll(outsourcedParts);
 
 
             //5 products
             List<Product> products = new ArrayList<Product>();
-            products.add(new Product("Green Tea Tasting", 20.00, 50));
-            products.add(new Product("Black Tea Tasting", 20.00, 50));
-            products.add(new Product("White Tea Tasting", 20.00, 50));
-            products.add(new Product("Pu Erh Tea Tasting", 20.00, 50));
-            products.add(new Product("Oolong Tea Tasting", 20.00, 50));
+            products.add(new Product("Green Tea Service", 20.00, 50));
+            products.add(new Product("Black Tea Service", 20.00, 50));
+            products.add(new Product("White Tea Service", 20.00, 50));
+            products.add(new Product("Pu Erh Tea Service", 20.00, 50));
+            products.add(new Product("Oolong Tea Service", 20.00, 50));
             productRepository.saveAll(products);
         }
 
