@@ -44,5 +44,6 @@ I.  Add at least two unit tests for the maximum and minimum fields to the PartTe
 1. PartTest.java: lines 159-178 adds tests for maximum and minimum fields to the PartTest class.
 
 J.  Remove the class files for any unused validators in order to clean your code.
+1. Removes DeletePartValidator.java since there were no usages detected.
 
 K.  Demonstrate professional communication in the content and presentation of your submission.
