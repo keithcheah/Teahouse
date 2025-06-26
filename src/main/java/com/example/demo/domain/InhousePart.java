@@ -21,6 +21,10 @@ public class InhousePart extends Part{
         super(name, price, inv);
     }
 
+    public InhousePart(String name, double price, int inv, int minInv, int maxInv) {
+        super(name, price, inv, minInv, maxInv);
+    }
+
     public int getPartId() {
         return partId;
     }

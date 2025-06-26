@@ -1,0 +1,41 @@
+package com.example.demo.validators;
+
+import com.example.demo.domain.Part;
+import com.example.demo.domain.Product;
+import com.example.demo.service.ProductService;
+import com.example.demo.service.ProductServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+/**
+ *
+ *
+ *
+ *
+ */
+public class InventoryValidator implements ConstraintValidator<ValidInventory, Part> {
+//    @Autowired
+    @Override
+    public void initialize(ValidInventory constraintAnnotation) {
+
+    }
+
+    @Override
+    public boolean isValid(Part part, ConstraintValidatorContext constraintValidatorContext) {
+        if (part.getInv() > part.getMaxInv()) {
+            constraintValidatorContext.buildConstraintViolationWithTemplate("Inventory is greater than max inventory.").addConstraintViolation();
+            return false;
+        }
+        else if (part.getInv() < part.getMinInv()){
+            constraintValidatorContext.buildConstraintViolationWithTemplate("Inventory is less than min inventory.").addConstraintViolation();
+            return false;
+        }
+        else{
+            return true;
+        }
+
+    }
+}

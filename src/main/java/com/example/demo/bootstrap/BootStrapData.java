@@ -73,11 +73,11 @@ public class BootStrapData implements CommandLineRunner {
         if (productRepository.count() == 0 && partRepository.count() == 0 && outsourcedPartRepository.count() == 0) {
             //5 parts
             List<OutsourcedPart> outsourcedParts = new ArrayList<OutsourcedPart>();
-            outsourcedParts.add(new OutsourcedPart("Dragon Pearl Jasmine Yunan 2023", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("First Flush Darjeeling 2021", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("White Peony (Bai Mu Dan) Fujian 2024", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("Baozhong (Pouchong) Taipei 2022", 5.00, 100));
-            outsourcedParts.add(new OutsourcedPart("Honey Orchid Dancong Oolong Guangdong 2022", 5.00, 100));
+            outsourcedParts.add(new OutsourcedPart("Dragon Pearl Jasmine Yunan 2023", 5.00, 100, 1, 100));
+            outsourcedParts.add(new OutsourcedPart("First Flush Darjeeling 2021", 5.00, 100, 1, 100));
+            outsourcedParts.add(new OutsourcedPart("White Peony (Bai Mu Dan) Fujian 2024", 5.00, 100, 1, 100));
+            outsourcedParts.add(new OutsourcedPart("Baozhong (Pouchong) Taipei 2022", 5.00, 100, 1, 100));
+            outsourcedParts.add(new OutsourcedPart("Honey Orchid Dancong Oolong Guangdong 2022", 5.00, 100, 1, 100));
             outsourcedPartRepository.saveAll(outsourcedParts);
 
 
