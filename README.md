@@ -41,6 +41,7 @@ Note: error handling for updating parts if inventory is less than minimum or gre
 2. EnufPartsValidator.java: line 36 updated if condition to make sure each part used for the product does not fall below its minimum threshold if the desired amount of product were to be created.
 
 I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+1. PartTest.java: lines 159-178 adds tests for maximum and minimum fields to the PartTest class.
 
 J.  Remove the class files for any unused validators in order to clean your code.
 
