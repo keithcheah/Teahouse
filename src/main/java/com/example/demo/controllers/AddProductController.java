@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.naming.InsufficientResourcesException;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +56,7 @@ public class AddProductController {
     public String submitForm(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult, Model theModel) {
         theModel.addAttribute("product", product);
 
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             ProductService productService = context.getBean(ProductServiceImpl.class);
             Product product2 = new Product();
             try {
@@ -64,31 +65,27 @@ public class AddProductController {
                 System.out.println("Error Message " + e.getMessage());
             }
             theModel.addAttribute("parts", partService.findAll());
-            List<Part>availParts=new ArrayList<>();
-            for(Part p: partService.findAll()){
-                if(!product2.getParts().contains(p))availParts.add(p);
+            List<Part> availParts = new ArrayList<>();
+            for (Part p : partService.findAll()) {
+                if (!product2.getParts().contains(p)) availParts.add(p);
             }
-            theModel.addAttribute("availparts",availParts);
-            theModel.addAttribute("assparts",product2.getParts());
+            theModel.addAttribute("availparts", availParts);
+            theModel.addAttribute("assparts", product2.getParts());
             return "productForm";
         }
- //       theModel.addAttribute("assparts", assparts);
- //       this.product=product;
-//        product.getParts().addAll(assparts);
         else {
             ProductService repo = context.getBean(ProductServiceImpl.class);
-            if(product.getId()!=0) {
+            if (product.getId() != 0) {
                 Product product2 = repo.findById((int) product.getId());
                 PartService partService1 = context.getBean(PartServiceImpl.class);
-                if(product.getInv()- product2.getInv()>0) {
+                if (product.getInv() - product2.getInv() >= 0) {
                     for (Part p : product2.getParts()) {
-                        int inv = p.getInv();
-                        p.setInv(inv - (product.getInv() - product2.getInv()));
+                        int potential_remaining =  p.getInv() - (product.getInv() - product2.getInv());
+                        p.setInv(potential_remaining);
                         partService1.save(p);
                     }
                 }
-            }
-            else{
+            } else {
                 product.setInv(0);
             }
             repo.save(product);
