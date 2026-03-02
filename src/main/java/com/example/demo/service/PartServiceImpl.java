@@ -47,7 +47,6 @@ public class PartServiceImpl implements PartService{
             thePart = result.get();
         }
         else {
-            // we didn't find the part id
             throw new RuntimeException("Did not find part id - " + theId);
         }
 
