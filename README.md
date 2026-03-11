@@ -56,12 +56,36 @@ Teahouse is a **full-stack web application** designed to streamline tea shop ope
 - **Relational Database** ensures ACID compliance for inventory consistency (prevents overselling)
 - **Vanilla JavaScript Frontend** keeps deployment lightweight and responsive
 
+## Getting Started
+
+### Prerequisites
+- Java 11+ installed
+- Maven (or Gradle)
+- MySQL or PostgreSQL database (running locally or in Docker)
+
+### Installation & Running
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/rhaubenstock/Teahouse.git
+   cd Teahouse
+
+2. Configure database connection: update src/main/resources/application.properties with your database credentials
+
+3. Build and run the backend
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   
+_(or use ./gradlew bootRun if Gradle)_
+   
+4. Access the application
+
+Open http://localhost:8080 in your browser for the customer portal
+Admin dashboard accessible at /admin (if applicable)
 
 ## Future Enhancements
 
-- Email/SMS order notifications for customers
-- Subscription-based recurring orders
-- Admin analytics dashboard (peak order times, best-selling products)
-- Multi-location inventory management
-- Payment gateway integration (Stripe/PayPal)
-- Mobile app for staff order fulfillment tracking
+- Order confirmation notifications (email/SMS)
+- Analytics dashboard for sales and inventory trends
+- Payment gateway integration (e.g., Stripe/PayPal)
